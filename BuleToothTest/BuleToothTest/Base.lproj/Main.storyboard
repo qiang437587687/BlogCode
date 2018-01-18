@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BuleToothTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bgL-6F-QPc">
+                                <rect key="frame" x="0.0" y="20" width="31" height="59"/>
+                                <color key="backgroundColor" red="1" green="0.67169612917548238" blue="0.67633629597791589" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="31" id="AON-bQ-yrR"/>
+                                    <constraint firstAttribute="height" constant="59" id="L9d-Vo-ZGa"/>
+                                </constraints>
+                                <state key="normal" title="设置"/>
+                                <connections>
+                                    <action selector="jumpToBule:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rFd-C6-MvX"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="接收到的信息" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="VRp-kg-GKV">
+                                <rect key="frame" x="0.0" y="91" width="150" height="100"/>
+                                <color key="backgroundColor" red="0.98188649567265607" green="1" blue="0.60542205887852196" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="Gnk-uv-2Z4"/>
+                                    <constraint firstAttribute="width" constant="150" id="wUR-Qn-M3S"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="要发送的信息" borderStyle="roundedRect" placeholder="请输入信息" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hsY-yI-2Cg">
+                                <rect key="frame" x="0.0" y="209" width="107" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="107" id="HbI-X1-bEI"/>
+                                    <constraint firstAttribute="height" constant="30" id="XuK-Cu-0v1"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qbm-oz-8F1">
+                                <rect key="frame" x="135" y="209" width="31" height="30"/>
+                                <state key="normal" title="发送"/>
+                                <connections>
+                                    <action selector="sendButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3GC-Gf-gB0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wmq-ew-gJa">
+                                <rect key="frame" x="329" y="209" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="36o-3W-Mif"/>
+                                    <constraint firstAttribute="height" constant="30" id="hzW-Uo-bgg"/>
+                                </constraints>
+                                <state key="normal" title="刷新"/>
+                                <connections>
+                                    <action selector="refreshButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="q6a-HT-zaw"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="log信息" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="l2S-zb-8Ap">
+                                <rect key="frame" x="158" y="15" width="217" height="176"/>
+                                <color key="backgroundColor" red="1" green="0.96421771808514556" blue="0.8420728405249025" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="176" id="7Zu-1b-0BF"/>
+                                    <constraint firstAttribute="width" constant="217" id="egU-bz-Gvt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="hsY-yI-2Cg" firstAttribute="top" secondItem="VRp-kg-GKV" secondAttribute="bottom" constant="18" id="6yt-cW-Nw6"/>
+                            <constraint firstItem="Qbm-oz-8F1" firstAttribute="centerY" secondItem="hsY-yI-2Cg" secondAttribute="centerY" id="8HP-6B-zCe"/>
+                            <constraint firstItem="hsY-yI-2Cg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8gF-fL-1VE"/>
+                            <constraint firstItem="l2S-zb-8Ap" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="8x4-da-4z3"/>
+                            <constraint firstItem="Wmq-ew-gJa" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="MZs-fv-qS8"/>
+                            <constraint firstItem="VRp-kg-GKV" firstAttribute="top" secondItem="bgL-6F-QPc" secondAttribute="bottom" constant="12" id="NFb-uN-4QR"/>
+                            <constraint firstItem="VRp-kg-GKV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="SQA-WE-5Fk"/>
+                            <constraint firstItem="bgL-6F-QPc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="boK-ae-DZ2"/>
+                            <constraint firstItem="Wmq-ew-gJa" firstAttribute="centerY" secondItem="Qbm-oz-8F1" secondAttribute="centerY" id="f4S-YK-ZZb"/>
+                            <constraint firstItem="bgL-6F-QPc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ha6-iS-OQ1"/>
+                            <constraint firstItem="l2S-zb-8Ap" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="15" id="tm3-Z6-4rP"/>
+                            <constraint firstItem="Qbm-oz-8F1" firstAttribute="leading" secondItem="hsY-yI-2Cg" secondAttribute="trailing" constant="28" id="ury-yS-gFR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="inputTextField" destination="hsY-yI-2Cg" id="9DM-NI-zFQ"/>
+                        <outlet property="receiveMessage" destination="VRp-kg-GKV" id="Xa2-io-C58"/>
+                        <outlet property="tempInputView" destination="l2S-zb-8Ap" id="oOJ-f5-Cui"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2114.4000000000001" y="-156.07196401799101"/>
+        </scene>
+    </scenes>
+</document>
