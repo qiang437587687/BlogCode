@@ -10,12 +10,13 @@ import Foundation
 import CoreBluetooth
 import NetworkExtension
 import SystemConfiguration.CaptiveNetwork
+import ObjectiveC.NSObjCRuntime
 
 enum ConnectError {
     
     case connectPeripheralError
     case connectCharacteristic
-    
+    case unknowError
 }
 
 enum BlueConnectStatusENUM {
@@ -50,23 +51,51 @@ class SimpleCoreBluetooth:NSObject {
     fileprivate var backMessageClosure:BlueToothMessageBackClosure?
     fileprivate var serviceUUIDs_Store: [CBUUID]?
     fileprivate var characteristicUUIDs_Store : [CBUUID]?
+    fileprivate var startSearchDeviceUUID_Store : [CBUUID]?
     fileprivate var filterMessage : Array<String>?
+    
+    fileprivate var scanDeviceFlag:Bool = false
+    fileprivate var scancharacteristicFlag:Bool = false
+    fileprivate var poweredOnFlag:Bool = false
+    
+    fileprivate var searchMethodTimeout : Double = 60.0
+    
     /// second ：等待的扫描时间 默认60秒， blk 筛选的闭包，传回来一个name过滤数组
-    func startSearchDeviceWithFilter(second: Double = 60.0,filter:BlueToothFilterClosure?, backDevice:@escaping BlueToothBackDeviceClosure) { //终于找到一个 可以逃逸的例子啦
+    func startSearchDeviceWithFilter(second: Double = 60.0,Services:[CBUUID]? = nil,filter:BlueToothFilterClosure?, backDevice:@escaping BlueToothBackDeviceClosure) { //找到一个可以逃逸的例子啦。
         filterMessage =  filter?() //获取用户的过滤信息 -> 目前传回来的是一个数组，里面包含用户需要的信息 可以是nil
+        startSearchDeviceUUID_Store = Services
         
-        if let _ = peripheralSelected { print("请先断开外设连接再重新开始搜索");return}
-        
-        let _ = central //启动central回调到centralManagerDidUpdateState
+        searchMethodTimeout = second
         
         backClosure = backDevice
         
-        DispatchQueue.global().asyncAfter(deadline: .now() + second) {
-            // 到时间了结束啦。
-            print("到时间啦，结束扫描")
-            self.endSearch()
+        scanDeviceFlag = false
+        
+        scancharacteristicFlag = false
+        
+        if let _ = peripheralSelected { print("请先断开外设连接再重新开始搜索");return}
+        
+        if poweredOnFlag { //已经打开蓝牙有了搜索的记录了，直接搜索。否则需要等待状态
+            dickDockMethodScanForPeripherals(second: searchMethodTimeout)
+        } else {
+            let _ = central //启动central回调到centralManagerDidUpdateState
         }
         
+    }
+    
+    fileprivate func dickDockMethodScanForPeripherals(second: Double = 60.0) {
+    
+        central.scanForPeripherals(withServices: startSearchDeviceUUID_Store, options: [CBCentralManagerScanOptionAllowDuplicatesKey: NSNumber.init(value: false)])
+        
+        
+        DispatchQueue.global().asyncAfter(deadline: .now() + second) {
+    // 到时间了结束啦。
+            print("扫描蓝牙外设到时间，结束扫描，回传蓝牙外设列表")
+            self.scanDeviceFlag = true
+            DispatchQueue.main.async(execute: {
+                self.endSearch()
+            })
+        }
     }
     
     func endSearch() {
@@ -76,7 +105,10 @@ class SimpleCoreBluetooth:NSObject {
         
     }
     
-    func connectPeripheralWithIndex(peripheralDeviceIndex:Int,serviceUUIDs: [CBUUID]?,characteristicUUIDs: [CBUUID]?,conectStatus:@escaping BlueToothConnectPeripheralStatusClosure) {
+    //从连接外设到搜索服务 默认给 60秒的时间， 在此期间如果完成
+    func connectPeripheralWithIndex(peripheralDeviceIndex:Int,second: Double = 60.0,serviceUUIDs: [CBUUID]?,characteristicUUIDs: [CBUUID]?,conectStatus:@escaping BlueToothConnectPeripheralStatusClosure) {
+        
+        if scanDeviceFlag == false { print("正在扫描设备别着急连接啊~");return}
         
         peripheralStatusClosure = conectStatus //保存闭包
         serviceUUIDs_Store = serviceUUIDs
@@ -85,15 +117,44 @@ class SimpleCoreBluetooth:NSObject {
         if peripheralDeviceIndex + 1 > deviceList.count { print("传入的index超越数组的index啦~");return}
         peripheralSelected = deviceList[peripheralDeviceIndex]
         central.connect(peripheralSelected!, options: nil) //连接外设
+        
+        let item = DispatchWorkItem.init {
+            // 到时间了结束啦。
+            self.scancharacteristicFlag = true
+            print("连接外设 扫描服务 寻找特征 一共花费\(second)秒 连接结束")
+        } //这货可以取消
+        
+        DispatchQueue.global().asyncAfter(deadline: .now() + second, execute: item)
+        
     }
     
     func disconnectPeripheral() {
         
         if let p = peripheralSelected {
             central.cancelPeripheralConnection(p)
+            peripheralSelected = nil
+            tempCBCharacteristic = nil
+            print("断开链接peripheralSelected 清理 peripheralSelected tempCBCharacteristic")
         } else {
             print("还没有保存连接，无法执行断开")
         }
+    }
+    
+    func statusConnectCheck() -> BlueConnectStatusENUM {
+        print("如果给定的时间不够长 查询此状态可能有误！")
+        /*
+         fileprivate var peripheralSelected : CBPeripheral? //选中的用来连接的 作用是搜索服务
+         fileprivate var tempCBCharacteristic : CBCharacteristic? //搜索到服务后的用来真正传输数据的特征。
+         */
+        if scanDeviceFlag == false { print("正在扫描设备"); return .error(error: .connectPeripheralError)}
+        
+        if scancharacteristicFlag == false { print("正在扫描特征信息");return .error(error: .connectCharacteristic) }
+        
+        if let _ = tempCBCharacteristic  { return .success }
+        
+        if let _ = peripheralSelected { return .error(error: .connectCharacteristic) }
+        
+        return .error(error: .unknowError)
     }
     
     func writeValue(strData:String, msgClosure:BlueToothMessageBackClosure?) { // 写入数据的方法。目前仅仅是发送字符串。
@@ -144,7 +205,8 @@ extension SimpleCoreBluetooth:CBCentralManagerDelegate,CBPeripheralDelegate {
             //MARK: -3.扫描周围外设（支持蓝牙）
             // 第一个参数，传外设uuid，传nil，代表扫描所有外设
             print("开始扫描设备")
-            central.scanForPeripherals(withServices: nil, options: [CBCentralManagerScanOptionAllowDuplicatesKey: NSNumber.init(value: false)])
+            poweredOnFlag = true
+            dickDockMethodScanForPeripherals(second: searchMethodTimeout) //这里可以写到 poweredOnFlag didset 不过后期看起来有点费劲。现在直接写这里好了。
         }
     }
     
@@ -253,6 +315,7 @@ extension SimpleCoreBluetooth:CBCentralManagerDelegate,CBPeripheralDelegate {
             case CBCharacteristicProperties.write:
                 print("characteristic ===> write")
                 tempCBCharacteristic = characteristic //给个全局的characteristic，
+                peripheralStatusClosure?(.success)
                 continue
             case CBCharacteristicProperties.writeWithoutResponse:
                 print("characteristic ===> writeWithoutResponse")
@@ -295,6 +358,7 @@ extension SimpleCoreBluetooth:CBCentralManagerDelegate,CBPeripheralDelegate {
                     
                     tempCBCharacteristic = characteristic //给个全局的characteristic，
                     print("连接成功，设置全局characteristic设置成功，可以发送数据")
+                    peripheralStatusClosure?(.success)
                 }
             }
         }

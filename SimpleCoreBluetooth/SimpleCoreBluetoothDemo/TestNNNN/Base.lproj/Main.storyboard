@@ -19,19 +19,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ss-Q9-xIH">
-                                <rect key="frame" x="24" y="113" width="98" height="78"/>
+                                <rect key="frame" x="12" y="20" width="157" height="78"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="点击链接"/>
+                                <state key="normal" title="点击链接外设0"/>
                                 <connections>
                                     <action selector="connectButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tUd-hy-phw"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kqp-S5-sLj">
-                                <rect key="frame" x="32" y="290" width="90" height="64"/>
+                                <rect key="frame" x="20" y="130" width="149" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="发送测试数据"/>
                                 <connections>
                                     <action selector="sendTestMessage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Y4Y-SA-fEn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uhB-wm-lnF">
+                                <rect key="frame" x="33" y="247" width="127" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="断开外设链接"/>
+                                <connections>
+                                    <action selector="disconnectButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6QU-80-J3F"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2W9-Qw-rIE">
+                                <rect key="frame" x="43" y="332" width="117" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="重新扫描外设"/>
+                                <connections>
+                                    <action selector="reconnectButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lRm-MR-xN1"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -41,7 +57,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-639" y="-457"/>
+            <point key="canvasLocation" x="-1000.8" y="-457.42128935532236"/>
         </scene>
     </scenes>
 </document>
