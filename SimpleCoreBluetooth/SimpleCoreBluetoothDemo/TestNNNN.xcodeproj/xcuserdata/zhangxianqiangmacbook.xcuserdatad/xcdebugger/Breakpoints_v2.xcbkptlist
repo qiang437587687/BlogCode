@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TestNNNN/ViewController.swift"
+            timestampString = "538450757.5528899"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TestNNNN.ViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "TestNNNN"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhangxianqiangmacbook/Desktop/Creat/TestNNNN/TestNNNN/ViewController.swift"
+                  timestampString = "538397798.9997571"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "140">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Array&lt;__ObjC.CBPeripheral&gt;) -&gt; () in TestNNNN.ViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "TestNNNN"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhangxianqiangmacbook/Desktop/Creat/TestNNNN/TestNNNN/ViewController.swift"
+                  timestampString = "538397799.001942"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "176">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
