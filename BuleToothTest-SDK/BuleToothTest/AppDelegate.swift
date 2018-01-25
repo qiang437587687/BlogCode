@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  TestNNNN
+//  BuleToothTest
 //
-//  Created by zhangxianqiang on 2018/1/23.
+//  Created by zhangxianqiang on 2018/1/15.
 //  Copyright © 2018年 BFtv. All rights reserved.
 //
 
