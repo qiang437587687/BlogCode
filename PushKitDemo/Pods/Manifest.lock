@@ -1,0 +1,23 @@
+PODS:
+  - AVOSCloud (8.0.6)
+  - AVOSCloudIM (8.0.6):
+    - AVOSCloud (= 8.0.6)
+    - AVOSCloudIM/_ARC (= 8.0.6)
+    - AVOSCloudIM/_NOARC (= 8.0.6)
+  - AVOSCloudIM/_ARC (8.0.6):
+    - AVOSCloud (= 8.0.6)
+    - AVOSCloudIM/_NOARC (= 8.0.6)
+  - AVOSCloudIM/_NOARC (8.0.6):
+    - AVOSCloud (= 8.0.6)
+
+DEPENDENCIES:
+  - AVOSCloud (~> 8.0.4)
+  - AVOSCloudIM (~> 8.0.4)
+
+SPEC CHECKSUMS:
+  AVOSCloud: 3fc5837eb4019f75eecd3064ed79d92656cbe2b5
+  AVOSCloudIM: b2d2e57025c2d78030e562cd78325e362615b251
+
+PODFILE CHECKSUM: ce1576a84c64d3d248b4ff3dda838e11acd046b7
+
+COCOAPODS: 1.4.0.rc.1

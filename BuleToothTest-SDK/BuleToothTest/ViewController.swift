@@ -79,6 +79,7 @@ class ViewController: UIViewController {
         labelHeader.font = UIFont.systemFont(ofSize: 15)
         table.tableHeaderView = labelHeader
         return table
+        
     }()
     
     @IBOutlet weak var tempInputView: UITextView!

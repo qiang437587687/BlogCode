@@ -1,0 +1,6 @@
+framework module Pods_PushKitDemo {
+  umbrella header "Pods-PushKitDemo-umbrella.h"
+
+  export *
+  module * { export * }
+}
