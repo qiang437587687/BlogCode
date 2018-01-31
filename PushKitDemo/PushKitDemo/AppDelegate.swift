@@ -12,7 +12,7 @@ import AVOSCloud
 import AVOSCloudIM
 import PushKit
 
-let ConstStrting = "XIAOYUEVOIP"
+let ConstStrting = "XIAO"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDelegate,PKPushRegistryDelegate {
@@ -66,7 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         
         registerAppNotificationSettings(launchOptions: launchOptions)
         
-        AVOSCloud.setApplicationId("ldjlRorsdCVMWPVB98rtTMWL-gzGzoHsz", clientKey: "F7WAH3kS9vjQ2BbGr0IIrXX5")
+        AVOSCloud.setApplicationId("你的leancloud ID", clientKey: "你的leancloud key")
         
         let obj = AVObject.init(className: "testHome")
         obj.setObject("bar", forKey: "foo")
@@ -124,7 +124,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         
         /*
          let ins = AVInstallation.current()
-         ins.apnsTopic = "com.baofeng.xyhelper"
+         ins.apnsTopic = "com.baofeng.xxxx"
          ins.setDeviceTokenFrom(deviceToken)
          ins.saveInBackground()
          */
@@ -138,7 +138,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         //保存对应的installtion
         let insTempString = deleteVoipString(str: temp.objectId ?? "")
         let ins = AVInstallation.init(objectId: insTempString + ConstStrting)
-        ins.apnsTopic = "com.baofeng.xyhelper.voip"
+        ins.apnsTopic = "com.baofeng.xxxx.voip"
         ins.setDeviceTokenFrom(credentials.token)
         ins.saveInBackground()
         print("objectID")
@@ -255,7 +255,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         
         let insTemp = AVInstallation.current()
         let ins = AVInstallation.init(objectId: deleteVoipString(str: insTemp.objectId ?? ""))
-        ins.apnsTopic = "com.baofeng.xyhelper"
+        ins.apnsTopic = "com.baofeng.xxxx"
         ins.setDeviceTokenFrom(deviceToken)
         ins.saveInBackground()
         print("objectID")
