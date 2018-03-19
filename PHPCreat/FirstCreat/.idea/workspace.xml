@@ -27,11 +27,9 @@
       <file leaf-file-name="first.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/first.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-              <folding>
-                <element signature="e#6#103#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="150">
+              <caret line="10" column="25" lean-forward="true" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -53,8 +51,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="248" />
-    <option name="y" value="109" />
+    <option name="x" value="234" />
+    <option name="y" value="165" />
     <option name="width" value="1400" />
     <option name="height" value="987" />
   </component>
@@ -219,12 +217,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1521456961427</updated>
-      <workItem from="1521456962595" duration="298000" />
+      <workItem from="1521456962595" duration="846000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="298000" />
+    <option name="totallyTimeSpent" value="846000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -236,7 +234,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="248" y="109" width="1400" height="987" extended-state="0" />
+    <frame x="234" y="165" width="1400" height="987" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -272,11 +270,9 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/first.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding>
-            <element signature="e#6#103#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="150">
+          <caret line="10" column="25" lean-forward="true" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
