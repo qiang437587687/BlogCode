@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PushKitDemo/AppDelegate.swift"
-            timestampString = "538989533.6067981"
+            timestampString = "539090193.27438"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "265"
@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PushKitDemo/AppDelegate.swift"
-            timestampString = "538989533.60736"
+            timestampString = "539090193.274456"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "146"
@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PushKitDemo/AppDelegate.swift"
-            timestampString = "538989533.60773"
+            timestampString = "539090193.2745"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "309"
@@ -74,7 +74,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PushKitDemo/AppDelegate.swift"
-            timestampString = "538989533.6081899"
+            timestampString = "539090193.274568"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "156"
@@ -97,38 +97,6 @@
             endingLineNumber = "135"
             landmarkName = "provider(_:perform:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "function signature specialization &lt;Arg[0] = Dead, Arg[1] = Owned To Guaranteed&gt; of PushKitDemo.ProviderDelegate.provider(__ObjC.CXProvider, perform: __ObjC.CXStartCallAction) -&gt; ()"
-                  moduleName = "PushKitDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhangxianqiangmacbook/Desktop/PushKitDemo/PushKitDemo/ProviderDelegate.swift"
-                  timestampString = "538989533.89581"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "136"
-                  endingLineNumber = "136"
-                  offsetFromSymbolStart = "476">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "function signature specialization &lt;Arg[0] = Owned To Guaranteed, Arg[1] = Owned To Guaranteed&gt; of closure #1 () -&gt; () in PushKitDemo.ProviderDelegate.provider(__ObjC.CXProvider, perform: __ObjC.CXStartCallAction) -&gt; ()"
-                  moduleName = "PushKitDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhangxianqiangmacbook/Desktop/PushKitDemo/PushKitDemo/ProviderDelegate.swift"
-                  timestampString = "538989533.897519"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "136"
-                  endingLineNumber = "136"
-                  offsetFromSymbolStart = "20">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -250,7 +218,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PushKitDemo/AppDelegate.swift"
-            timestampString = "538989533.608924"
+            timestampString = "539090193.274732"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "150"
@@ -266,7 +234,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PushKitDemo/AppDelegate.swift"
-            timestampString = "538989533.609146"
+            timestampString = "539090193.274773"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "172"

@@ -72,7 +72,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         obj.setObject("bar", forKey: "foo")
         obj.save()
         
-        
         let pushRegistry = PKPushRegistry.init(queue: nil)
         pushRegistry.delegate = self
         pushRegistry.desiredPushTypes = [PKPushType.voIP]
@@ -169,7 +168,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
             return false
         }
         print("handle = \(handle)")
-        callManager.startCall(handle: handle, videoEnabled: video)
+        
+        callManager.startCall(handle: handle, videoEnabled: video) //这个我没有去试验
         return true
     }
     func applicationWillResignActive(_ application: UIApplication) {
