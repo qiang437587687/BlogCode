@@ -9,6 +9,7 @@ import 'package:flutter_app_douban_copy/another/Refresh.dart';
 import "package:pull_to_refresh/pull_to_refresh.dart";
 import 'package:flutter_app_douban_copy/utils/donate.dart';
 import 'package:flutter_app_douban_copy/Const.dart';
+import 'package:flutter_app_douban_copy/PageiOSItem.dart';
 
 void main() => runApp(new MyApp());
 
@@ -141,7 +142,7 @@ class _HomePageState extends State<HomePage> {
         textSection,
 
         ButtonNavToPage(voidCallback: _pressButton), // 使用回调就就可以了？
-
+        Padding(padding: const EdgeInsets.all(8.0),child: ButtonNavToPage(voidCallback: _navigationToiOSPage,titleString: "点击到iOS页面",),),
 //        ChangeBackgroundButton(),
 
         Container(
@@ -234,6 +235,13 @@ class _HomePageState extends State<HomePage> {
     Navigator.push(
       context,
       new MaterialPageRoute(builder: (context) => new SecondScreen()),
+    );
+  }
+
+  _navigationToiOSPage() {
+    Navigator.push(
+      context,
+      new MaterialPageRoute(builder: (context) => new PageIOSScreen()),
     );
   }
   
@@ -344,15 +352,16 @@ Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese Alps. Situate
 //封装一个button
 class ButtonNavToPage extends StatelessWidget {
 
-  ButtonNavToPage({@required this.voidCallback});
+  ButtonNavToPage({@required this.voidCallback, this.titleString = 'titleString'});
 
   final VoidCallback voidCallback;
+  final String titleString;
 
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Center(
-      child: RaisedButton(onPressed: voidCallback,textColor: Colors.green,child: Text("Launch in browser")),
+      child: RaisedButton(onPressed: voidCallback,textColor: Colors.green,child: Text(titleString)),
     );
   }
 }
