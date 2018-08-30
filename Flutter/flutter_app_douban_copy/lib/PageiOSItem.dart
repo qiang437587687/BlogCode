@@ -2,33 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_app_douban_copy/utils/Logger.dart';
 
-//这就是第二个页面了
-class SecondScreen extends StatelessWidget {
-
-  num left = 1;
-
-  //这就是set get 方法，这里可以不用修改原始数据的情况下添加数据。
-  num get right => left + 1;
-  set right (num value) => (left = value - 1);
-
-  @override
-  Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text("Second Screen"),
-      ),
-      body: new Center(
-        child: new RaisedButton(
-          onPressed: () {
-            // Navigate back to first screen when tapped!
-            Navigator.pop(context);
-          },
-          child: new Text('Go back!'),
-        ),
-      ),
-    );
-  }
-}
 
 //这个常识一下各种iOS控件
 
@@ -120,17 +93,25 @@ class CupertinoDemoTab1 extends StatelessWidget {
   final Color color;
   final VoidCallback leadingCallback;
   final VoidCallback trailingCallback;
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
 
+    CupertinoButton lButton = CupertinoButton(child: Text("CupertinoButton"), onPressed: null);
+
+    //这个控件直接放在leading上面会有一些位置移动，这里就需要用一个控件进行包裹，设定好位置之后再放到上面。
+    GestureDetector ges = GestureDetector(onTap: leadingCallback ,child: Text("back"),);
+    //用控件包裹了，这里面的Factor貌似是拉伸度，
+    Align ali = Align(widthFactor: 1.0,alignment: Alignment.center,child: ges,);
 
     return CupertinoPageScaffold(
 
       navigationBar: CupertinoNavigationBar(
-        leading: RaisedButton(onPressed: leadingCallback),
+        //这种方法不太好啊~
+        leading: Container(child: Text("123"),alignment: Alignment.center,width: 44.0,height: 44.0,),
         middle: Text(name),
-        trailing: RaisedButton(onPressed: trailingCallback),
+        trailing: ali,
       ),
 //
       child: new GestureDetector(onTapUp: (tap) {
