@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_app_douban_copy/utils/Logger.dart';
+import 'package:json_annotation/json_annotation.dart';
+import 'package:convert/convert.dart';
+import 'dart:convert';
+import 'package:flutter_app_douban_copy/http/HttpManager.dart'as HttpManager;
+import 'package:flutter_app_douban_copy/user.dart';
 
 
 //这个常识一下各种iOS控件
@@ -29,6 +34,8 @@ class PageIOSScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
+
+    _getJsonStr();
 
     BuildContext globalContext = context;
 
@@ -82,6 +89,28 @@ class PageIOSScreen extends StatelessWidget {
 
   }
 
+  _getJsonStr() {
+
+    // 解析一下json
+    //
+    HttpManager.get(url: "http://localhost/zhang/GGJson.php", onSend: (){
+      print("开始请求网络了");
+    },
+      onSuccess: (String body) {
+        print("数据是\n ======> ");
+        print(body);
+        Map userMap = json.decode(body);
+        var user = new User.fromJson(userMap);
+        print(user);
+      },
+      onError: (Object e) {
+
+        //这里需要一个tip提示。~ 一会搞，~
+        Logger.log("error message ==== > ", e);
+      },
+    );
+
+  }
 
 }
 
